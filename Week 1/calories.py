@@ -1,6 +1,6 @@
-age = int(input("What is your age: "))
 first_name = input("What is your first name: ")
 last_name = input("What is youe last name: ")
+age = int(input("What is your age: "))
 calories_breakfast = float(input("How many calories did you eat for breakfast: "))
 calories_lunch = float(input("How many calories did you eat for lunch: "))
 calories = calories_breakfast + calories_lunch
