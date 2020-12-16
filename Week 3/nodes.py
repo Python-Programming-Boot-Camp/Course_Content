@@ -1,5 +1,5 @@
 """First part of Sample Google Interview Question
-Find the total number of nodes in this tree
+Find the total number of nodes from each value to the root node (1) in this tree
        1
      /   \\
     2      3
