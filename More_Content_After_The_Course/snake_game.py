@@ -3,27 +3,27 @@ import turtle
 import time
 import random
 
-#Setup
 delay = 0.1
 score = 0
 high_score = 0
+
+#set up screen
 window1 = turtle.Screen()
-window1.bgcolor("black")
-window1.title("Snake game")
-window1.setup(width=600,height=600)
+window1.title("Snake Game")
+window1.bgcolor('black')
+window1.setup(width=600, height=600)
 window1.tracer(0)
 
-#Snake
+#snake
 snake = turtle.Turtle()
 snake.speed(0)
 snake.shape("square")
 snake.color("green")
 snake.penup()
 snake.goto(0,0)
-snake.direction="stop"
+snake.direction = "stop"
 
-
-#Food
+#food
 food = turtle.Turtle()
 food.speed(0)
 food.shape("square")
@@ -33,7 +33,7 @@ food.goto(0,100)
 
 segments = []
 
-#Scoreboard
+#scoreboard
 scoreboard = turtle.Turtle()
 scoreboard.speed(0)
 scoreboard.shape("square")
@@ -41,21 +41,21 @@ scoreboard.color("yellow")
 scoreboard.penup()
 scoreboard.hideturtle()
 scoreboard.goto(0,260)
-scoreboard.write("Score: 0   High Score: 0",align="center",font=("ds-digital",24,"normal"))
-# Functions
-def go_up ():
+scoreboard.write("Score: 0  High Score: 0", align = "center", font=("ds-digital", 24, "normal"))
+
+#Functions
+def go_up():
     if snake.direction != "down":
         snake.direction = "up"
-def go_down ():
+def go_down():
     if snake.direction != "up":
         snake.direction = "down"
-def go_left ():
+def go_left():
     if snake.direction != "right":
         snake.direction = "left"
-def go_right ():
+def go_right():
     if snake.direction != "left":
         snake.direction = "right"
-
 def move():
     if snake.direction == "up":
         y = snake.ycor()
@@ -69,39 +69,40 @@ def move():
     if snake.direction == "right":
         x = snake.xcor()
         snake.setx(x+20)
-# Keyborad
-window1.listen()
-window1.onkeypress(go_up,"w")
-window1.onkeypress(go_down,"s")
-window1.onkeypress(go_left,"a")
-window1.onkeypress(go_right,"d")
 
+#keyboard
+window1.listen()
+window1.onkeypress(go_up, "w")
+window1.onkeypress(go_down, "s")
+window1.onkeypress(go_left, "a")
+window1.onkeypress(go_right, "d")
+
+#MainLoop
 while True:
     window1.update()
 
-    # Check collisions
-    if snake.xcor() > 290 or snake.xcor() < 290 or snake.ycor() > 290 or snake.ycor() < 290:
+    #check collision with border area
+    if snake.xcor()>290 or snake.xcor()<-290 or snake.ycor()>290 or snake.ycor()<-290:
         time.sleep(1)
         snake.goto(0,0)
         snake.direction = "stop"
-         #hide the segments of body
+
+        #hide the segments
         for segment in segments:
             segment.goto(1000,1000) #out of range
         #clear the segments
         segments.clear()
 
-        #reset score
+        #reset
         score = 0
-
-        #reset delay
         delay = 0.1
 
         scoreboard.clear()
         scoreboard.write("Score: {}  High Score: {}".format(score, high_score), align="center", font=("ds-digital", 24, "normal"))
 
-    #check collision with food
+    #check if got food
     if snake.distance(food) <20:
-        # move the food to random place
+        # move the food
         x = random.randint(-290,290)
         y = random.randint(-290,290)
         food.goto(x,y)
@@ -129,7 +130,7 @@ while True:
         x = segments[index-1].xcor()
         y = segments[index-1].ycor()
         segments[index].goto(x,y)
-    #move segment 0 to head of
+    #move segment 0 to head
     if len(segments)>0:
         x = snake.xcor()
         y = snake.ycor()
