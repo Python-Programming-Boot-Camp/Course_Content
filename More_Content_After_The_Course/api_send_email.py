@@ -1,9 +1,9 @@
 import smtplib
-email_sender = "jka83321@gmail.com"
-email_sender_password = "pvhjuhlojtqtocec"
-with smtplib.SMTP_SSL("smtp.gmail.com",465) as smpt:
-    smpt.login(email_sender,email_sender_password)
+email_sender = "youremail@gmail.com"
+email_sender_password = "yourPassword123"
+with smtplib.SMTP_SSL("smtp.gmail.com",465) as smtp:
+    smtp.login(email_sender,email_sender_password)
     subject = "Test"
     body = "How are you?"
     message = f"Subject:{subject}\n\n{body}"
-    smpt.sendmail(email_sender,"jka83321@gmail.com",message)
+    smtp.sendmail(email_sender,"anotheremail@gmail.com",message)
