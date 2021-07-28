@@ -1,13 +1,18 @@
-def pack_it (*args):
-    print(args)
-    print(type(args))
-a = "A"
-b = "B"
-c = "c"
-pack_it(a,b,c)
+a = 4
+b = 5
+a,b = b,a
+print(a)
+print(b)
+print('')
 
-def unpack_it(x,y):
-    print(x)
-    print(y)
-args = (5,10)
-unpack_it(*args)
+d , e, f = "10 5 7".split()
+print(d)
+print("")
+
+tup = (1,2,3)
+h, i, j = tup
+print(h)
+print("")
+
+var = h, i, j
+print(var)
