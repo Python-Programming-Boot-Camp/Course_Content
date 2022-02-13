@@ -18,7 +18,8 @@ def play_wordle(words : list) -> None:
                 if color.lower() == 'g':
                     if word[position] != letter:
                         words_to_remove.append(word)
-                        letters_in_word.append(letter)
+                        if letter not in letters_in_word:
+                            letters_in_word.append(letter)
                 elif color.lower() == 'b':
                     if letter in word:
                         if letter not in letters_in_word:
@@ -30,7 +31,8 @@ def play_wordle(words : list) -> None:
                         words_to_remove.append(word)
                     elif word[position] == letter:
                         words_to_remove.append(word)
-                        letters_in_word.append(letter)
+                        if letter not in letters_in_word:
+                            letters_in_word.append(letter)
             for word in words_to_remove:
                 words.remove(word)
         print(words)
