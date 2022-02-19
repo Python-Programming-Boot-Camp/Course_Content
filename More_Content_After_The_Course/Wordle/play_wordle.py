@@ -52,6 +52,7 @@ def play(game_rows, browser, possible_guesses, possible_answers):
             
         if answer_evaluation == [2, 2, 2, 2, 2]: # 2 is correct location
             return [chosen_word]
+        time.sleep(1)
         
         if len(narrowed_down_list) == 1:
             enter_guess(narrowed_down_list[0])
