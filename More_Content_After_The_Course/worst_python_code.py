@@ -1,5 +1,5 @@
 from datetime import datetime, date
-CURRENT_MILES = 794
+CURRENT_MILES = 865.2
 def thisWorks(a,b):
     print("Hello" + a + "you have run " + str(b) + " miles this year")
     dayOfYear = datetime.now().timetuple().tm_yday
